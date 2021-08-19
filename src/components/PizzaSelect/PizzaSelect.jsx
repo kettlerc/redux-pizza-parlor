@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import axios from 'axios';
 import { useEffect } from 'react'; 
+import PizzaItem from '../PizzaItem/PizzaItem';
 
 function PizzaSelect(){
-    const dispatch = useDispatch();
+   /* const dispatch = useDispatch();
 
     useEffect(() => {
         fetchPizzas();
@@ -13,7 +14,7 @@ function PizzaSelect(){
     const fetchPizzas = () => {
         axios ({
             method: 'GET',
-            url: '/pizzas'
+            url: '/api/order'
         }).then((response) => {
             dispatch({
                 type: 'SET_PIZZA_MENU',
@@ -22,11 +23,11 @@ function PizzaSelect(){
         }).catch((error) => {
             console.log('GET error', error);
         })
-    }
+    }*/
 
 
 
-    return (<h1>Our pizza test</h1>)
+    return (<PizzaItem />)
 
 }
 

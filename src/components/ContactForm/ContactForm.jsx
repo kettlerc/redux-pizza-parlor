@@ -1,13 +1,16 @@
 import { useState } from 'react';
 import axios from 'axios';
+import { useHistory } from 'react-router-dom';
 
-function ContactForm() {
+
+function ContactForm({fetchPizzas}) {
     const [customer_name, setCustomerName] = useState('');
     const [street_address, setStreetAddress] = useState('');
     const [city, setCity] = useState('');
     const [zip, setZip] = useState(0);
     const [type, setType] = useState('');
     const [total, setTotal] = useState(0);
+    const history = useHistory();
 
     const handleSubmit = event => {
         event.preventDefault();
@@ -24,13 +27,14 @@ function ContactForm() {
                 zip,
                 type,
                 //total
-            }.then(() => {
-                //GET function
+            }.then((response) => {
+                history.push('/PizzaSelect')
+                
             }).catch(error => {
                 console.log('error on post', error);
             })
         })
-
+    }
 
         return (
             <>
@@ -62,20 +66,20 @@ function ContactForm() {
                         value={type}
                         onChange={(event) => setType(event.target.value)}
                     />
-                    <label for="pickup">Pickup</label>
+                    <label htmlFor="pickup">Pickup</label>
                     <input
                         type="radio"
                         id="delivery"
                         value={type}
                         onChange={(event) => setType(event.target.value)}
                     />
-                    <label for="delivery">Delivery</label>
+                    <label htmlFor="delivery">Delivery</label>
 
                     <button type="submit">Next</button>
                 </form>
             </>
         )
-    }
+    
 }
 
 export default ContactForm;

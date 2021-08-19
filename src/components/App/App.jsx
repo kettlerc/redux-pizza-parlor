@@ -4,8 +4,30 @@ import axios from 'axios';
 import './App.css';
 import PizzaSelect from '../PizzaSelect/PizzaSelect';
 import ContactForm from '../ContactForm/ContactForm';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react'; 
 
 function App() {
+  const dispatch = useDispatch();
+
+    useEffect(() => {
+        fetchPizzas();
+    }, [] );
+
+    const fetchPizzas = () => {
+        axios ({
+            method: 'GET',
+            url: '/api/order'
+        }).then((response) => {
+            dispatch({
+                type: 'SET_PIZZA_MENU',
+                payload: response.data
+            })
+        }).catch((error) => {
+            console.log('GET error', error);
+        })
+    }
+
 
   return (
     <div className='App'>
@@ -24,7 +46,7 @@ function App() {
           </ul>
         </nav>
         <Route path="/PizzaSelect" exact>
-          <PizzaSelect />
+          <PizzaSelect fetchPizzas ={fetchPizzas} />
           
         </Route>
         <Route path="/ContactForm" exact>
