@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import { useEffect } from 'react'; 
 import PizzaItem from '../PizzaItem/PizzaItem';
 
 function PizzaSelect(){
+    const pizzaMenu = useSelector(store => store.pizzaSelectReducer)
     const dispatch = useDispatch();
 
    useEffect(() => {
@@ -27,7 +28,23 @@ function PizzaSelect(){
 
 
 
-    return (<PizzaItem />)
+    return (
+        <div>
+            <ul>
+                {pizzaMenu.map((pizza, i) => {
+                    return <PizzaItem
+                    key = {i}
+                    pizza={pizza} />
+                })}
+             </ul>
+        </div>
+    
+    
+    
+  
+    
+    
+    )
 
 }
 
