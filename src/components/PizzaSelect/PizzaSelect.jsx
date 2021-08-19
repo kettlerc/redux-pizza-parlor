@@ -5,16 +5,16 @@ import { useEffect } from 'react';
 import PizzaItem from '../PizzaItem/PizzaItem';
 
 function PizzaSelect(){
-   /* const dispatch = useDispatch();
+    const dispatch = useDispatch();
 
-    useEffect(() => {
+   useEffect(() => {
         fetchPizzas();
     }, [] );
 
     const fetchPizzas = () => {
         axios ({
             method: 'GET',
-            url: '/api/order'
+            url: '/api/pizza'
         }).then((response) => {
             dispatch({
                 type: 'SET_PIZZA_MENU',
@@ -23,7 +23,7 @@ function PizzaSelect(){
         }).catch((error) => {
             console.log('GET error', error);
         })
-    }*/
+    }
 
 
 
