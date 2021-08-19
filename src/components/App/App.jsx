@@ -1,13 +1,14 @@
 import React from 'react';
 import { HashRouter as Router, Route, Link } from 'react-router-dom';
-import axios from 'axios';
 import './App.css';
 import PizzaSelect from '../PizzaSelect/PizzaSelect';
 import ContactForm from '../ContactForm/ContactForm';
-import { useDispatch } from 'react-redux';
-import { useEffect } from 'react'; 
+import { useSelector } from 'react-redux';
+import PizzaItem from '../PizzaItem/PizzaItem';
+
 
 function App() {
+  const total = useSelector(store => store.totalPriceReducer)
 
 
 
@@ -16,6 +17,7 @@ function App() {
     <Router>
         <header className='App-header'>
           <h1 className='App-title'>Prime Pizza</h1>
+          <h2></h2>
         </header>
         <nav>
           <ul>

@@ -1,9 +1,14 @@
 import React, { useState } from 'react';
-
+import { useDispatch } from 'react-redux';
 
 function PizzaItem ({pizza}) {
+    const dispatch = useDispatch();
     const [buttonClick, setButtonClick] = useState(true);
     const toggleButtonClick = () => {
+        dispatch({
+            type: 'ADD_TO_ORDER',
+            payload: pizza
+        })
         setButtonClick (!buttonClick);
     }
     const toggleButton = () => {
@@ -11,6 +16,7 @@ function PizzaItem ({pizza}) {
             return <button onClick={toggleButtonClick}>Add</button>
         }
         else {
+
             return <button onClick={toggleButtonClick}>Remove</button>
         }
 

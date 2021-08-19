@@ -22,6 +22,16 @@ const pizzaSelectReducer = (state = [], action) => {
     return state;
 }
 
+const totalPriceReducer = (state = [], action) => {
+    if (action.type === 'ADD_TO_ORDER'){
+        return [...state, action.payload.price]
+    }
+    return state;
+}
+
+
+
+
 
 
 
@@ -29,7 +39,11 @@ const pizzaSelectReducer = (state = [], action) => {
 
 const storeInstance = createStore(
     combineReducers({
+
         pizzaSelectReducer,
+        totalPriceReducer
+        
+
     }),
     applyMiddleware(logger)
 );
