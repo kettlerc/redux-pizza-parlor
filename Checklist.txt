@@ -1,0 +1,21 @@
+PIZZA PARLOR PROJECT
+
+[ ] Pizza select page - Curtis/Eben
+    [ ] COMPONENT pizzas to select
+    [ ] ADD/REMOVE button
+        [ ] conditional rendering
+    [ ] update total price (global state)
+    [ ] ROUTE next page
+[ ] Contact info page - Chris/Jay
+    [ ] COMPONENT contact info form
+    [ ] name, address (local state)
+    [ ] radio button (local state, boolean)
+    [ ] ROUTE next page
+[ ] Order details page
+    [ ] COMPONENT order details page
+    [ ] GET order details
+    [ ] POST checkout button
+        [ ] takes user to first page
+[ ] Admin page
+    [ ] COMPONENT info table
+    [ ] GET order details
