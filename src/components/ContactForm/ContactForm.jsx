@@ -1,9 +1,10 @@
 import { useState } from 'react';
-import axios from 'axios';
 import { useHistory } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
 
 function ContactForm({fetchPizzas}) {
+    const dispatch = useDispatch();
     const [customer_name, setCustomerName] = useState('');
     const [street_address, setStreetAddress] = useState('');
     const [city, setCity] = useState('');
@@ -12,34 +13,28 @@ function ContactForm({fetchPizzas}) {
     const [total, setTotal] = useState(0);
     const history = useHistory();
 
+    const contactFormObject = {
+        customer_name,
+        street_address,
+        city,
+        zip,
+        type
+        //total
+    }
+
     const handleSubmit = event => {
         event.preventDefault();
 
         console.log('handle submit');
-
-        axios({
-            method: 'POST',
-            url: '/api/order',
-            data: {
-                customer_name,
-                street_address,
-                city,
-                zip,
-                type,
-                //total
-            }.then((response) => {
-                history.push('/PizzaSelect')
-                
-            }).catch(error => {
-                console.log('error on post', error);
-            })
+        dispatch({
+            type: 'ADD_ORDER',
+            payload: contactFormObject 
         })
     }
-
-        return (
+    return (
             <>
                 <h2>Customer Information</h2>
-                <form onSubmit={handleSubmit} className="addPizzaForm">
+                 <form onSubmit={handleSubmit} className="addPizzaForm">
                     <input 
                         placeholder="name"
                         value={customer_name}
@@ -75,11 +70,10 @@ function ContactForm({fetchPizzas}) {
                     />
                     <label htmlFor="delivery">Delivery</label>
 
-                    <button type="submit">Next</button>
-                </form>
+                    <button > NEXT
+                    </button>
+                </form> 
             </>
         )
-    
 }
-
 export default ContactForm;

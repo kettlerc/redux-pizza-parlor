@@ -3,6 +3,7 @@ import { HashRouter as Router, Route, Link } from 'react-router-dom';
 import './App.css';
 import PizzaSelect from '../PizzaSelect/PizzaSelect';
 import ContactForm from '../ContactForm/ContactForm';
+import OrderDetails from '../OrderDetails/OrderDetails';
 import { useSelector } from 'react-redux';
 import PizzaItem from '../PizzaItem/PizzaItem';
 
@@ -39,6 +40,9 @@ function App() {
             <li>
               <Link to="/PizzaSelect">Pizza Select</Link>
             </li>
+            <li>
+              <Link to="/OrderDetails">Order Details</Link>
+            </li>
           </ul>
         </nav>
         <Route path="/PizzaSelect" exact>
@@ -47,6 +51,10 @@ function App() {
         </Route>
         <Route path="/ContactForm" exact>
           <ContactForm />
+        </Route>
+
+        <Route path="/OrderDetails" exact>
+          <OrderDetails />
         </Route>
     
       </Router>
