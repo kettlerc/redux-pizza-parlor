@@ -5,7 +5,7 @@ import { HashRouter as Router, Route, Link } from 'react-router-dom';
 
 
 function AdminTable () {
-    const orders = useSelector(store => store.orders)
+    const orders = useSelector(store => store.ContactFormReducer)
     return (
         <>
         <Router>
@@ -16,19 +16,21 @@ function AdminTable () {
             <thead>
                 <tr>
                     <td>Name</td>
-                    <td>Date</td>
                     <td>Type</td>
-                    <td>Cost</td>
+                    
                 </tr>
             </thead>
             <tbody>
-                {/*<tr>{orders.map(order => {
+                <tr>{orders.map(order => {
                     return (
-                    <td>{orders}</td>
+                    <div>
+                    <td>{order.customer_name}</td>
+                    <td>{order.type}</td>
+                    </div>
                     )
                 })}
 
-            </tr>*/}
+            </tr>
             </tbody>
 
 
