@@ -1,6 +1,5 @@
 import React from 'react';
 import {useSelector } from 'react-redux';
-import OrderItem from '../OrderDetails/OrderDetails'
 
 function OrderDetails() {
     const checkoutOrder = useSelector(store => store.ContactFormReducer)
