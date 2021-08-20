@@ -8,16 +8,28 @@ import PizzaItem from '../PizzaItem/PizzaItem';
 
 
 function App() {
-  const total = useSelector(store => store.totalPriceReducer)
-
-
+  const totalPrice = useSelector(store => store.pizzaOrderReducer)
+  function calculateTotalPrice () {
+    let sum = 0;
+     for (let item of totalPrice){
+       
+       sum += Number(item.price)
+     }
+     return sum;
+  }
+  
 
   return (
     <div className='App'>
     <Router>
         <header className='App-header'>
           <h1 className='App-title'>Prime Pizza</h1>
-          <h2></h2>
+          <h2>{calculateTotalPrice()}</h2>
+
+
+
+
+
         </header>
         <nav>
           <ul>
