@@ -4,7 +4,7 @@ import './App.css';
 import PizzaSelect from '../PizzaSelect/PizzaSelect';
 import ContactForm from '../ContactForm/ContactForm';
 import { useSelector } from 'react-redux';
-import PizzaItem from '../PizzaItem/PizzaItem';
+import AdminTable from '../AdminTable/AdminTable';
 
 
 function App() {
@@ -24,7 +24,7 @@ function App() {
     <Router>
         <header className='App-header'>
           <h1 className='App-title'>Prime Pizza</h1>
-          <h2>{calculateTotalPrice()}</h2>
+          <h2>TOTAL:{calculateTotalPrice()}</h2>
 
 
 
@@ -48,8 +48,13 @@ function App() {
         <Route path="/ContactForm" exact>
           <ContactForm />
         </Route>
+
+       <Route path="/AdminTable" exact>
+          <AdminTable />
+          </Route>
     
       </Router>
+      
     </div>
   );
 }
