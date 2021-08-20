@@ -4,21 +4,38 @@ import {useSelector } from 'react-redux';
 function OrderDetails() {
     const checkoutOrder = useSelector(store => store.ContactFormReducer)
     console.log('this is our checkoutOrder', checkoutOrder);
+    const pizzaOrder = useSelector(store => store.pizzaOrderReducer)
+    console.log('this is our checkoutOrder', checkoutOrder);
     return (
          <div>
             <h3> Step 3: Checkout </h3>
                 {checkoutOrder.map((orders, i) => {
                          return (
                         <div>
-                        <h4>{orders.customer_name}</h4>
-                         <h3>{orders.street_address}</h3>
-                        <p>{orders.city}</p>
-                         <h4>{orders.zip}</h4>
+                        <h5>{orders.customer_name}</h5>
+                        <h5>{orders.street_address}</h5>
+                        <h5>{orders.city} {orders.zip}</h5>
+
                         <h4>{orders.type}</h4> 
                         </div>
                       )
                 })}
+                 {pizzaOrder.map((pizza, i) => {
+                        return (
+                         <table>
+                            <thead>
+                                    <th>Name</th>
+                                    <th>Cost</th>
+                            </thead>
+                                <tbody>
+                                        {pizza.name}{pizza.price}
+                                </tbody>
+                            </table>
+                )
+            })}
+            <button> Checkout </button>
          </div>
+         
     )
 }
 export default OrderDetails;
