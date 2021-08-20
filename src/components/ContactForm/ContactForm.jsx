@@ -9,7 +9,7 @@ function ContactForm({fetchPizzas}) {
     const [street_address, setStreetAddress] = useState('');
     const [city, setCity] = useState('');
     const [zip, setZip] = useState(0);
-    const [type, setType] = useState('');
+    const [type, setType] = useState(true);
     const [total, setTotal] = useState(0);
     const history = useHistory();
 
