@@ -22,13 +22,17 @@ const pizzaSelectReducer = (state = [], action) => {
     return state;
 }
 
-const totalPriceReducer = (state = [], action) => {
+const pizzaOrderReducer = (state = [], action) => {
     if (action.type === 'ADD_TO_ORDER'){
-        return [...state, action.payload.price]
+    return [...state, action.payload];
     }
-    return state;
+    
+    if (action.type === 'REMOVE_ORDER'){
+    return state.filter(pizza => pizza!==action.payload)
+    }
+  
+return state;
 }
-
 
 
 
@@ -41,7 +45,7 @@ const storeInstance = createStore(
     combineReducers({
 
         pizzaSelectReducer,
-        totalPriceReducer
+        pizzaOrderReducer
         
 
     }),

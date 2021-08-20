@@ -8,9 +8,9 @@ import PizzaItem from '../PizzaItem/PizzaItem';
 
 
 function App() {
-  const total = useSelector(store => store.totalPriceReducer)
+  const totalPrice = useSelector(store => store.pizzaOrderReducer)
 
-
+  
 
   return (
     <div className='App'>
@@ -18,6 +18,11 @@ function App() {
         <header className='App-header'>
           <h1 className='App-title'>Prime Pizza</h1>
           <h2></h2>
+
+
+
+
+
         </header>
         <nav>
           <ul>

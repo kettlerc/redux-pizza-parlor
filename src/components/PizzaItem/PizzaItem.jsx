@@ -5,10 +5,17 @@ function PizzaItem ({pizza}) {
     const dispatch = useDispatch();
     const [buttonClick, setButtonClick] = useState(true);
     const toggleButtonClick = () => {
+        if (buttonClick){
         dispatch({
             type: 'ADD_TO_ORDER',
             payload: pizza
-        })
+        })}
+        else if (!buttonClick){
+            dispatch({
+                type: 'REMOVE_ORDER',
+                payload: pizza
+            })}
+        
         setButtonClick (!buttonClick);
     }
     const toggleButton = () => {
@@ -16,7 +23,6 @@ function PizzaItem ({pizza}) {
             return <button onClick={toggleButtonClick}>Add</button>
         }
         else {
-
             return <button onClick={toggleButtonClick}>Remove</button>
         }
 
