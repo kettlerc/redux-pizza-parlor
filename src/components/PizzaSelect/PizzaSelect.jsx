@@ -3,10 +3,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import { useEffect } from 'react'; 
 import PizzaItem from '../PizzaItem/PizzaItem';
+import { useHistory } from 'react-router-dom';
 
 function PizzaSelect(){
     const pizzaMenu = useSelector(store => store.pizzaSelectReducer)
     const dispatch = useDispatch();
+    const history = useHistory();
 
    useEffect(() => {
         fetchPizzas();
@@ -26,6 +28,12 @@ function PizzaSelect(){
         })
     }
 
+    const handleSubmit = event => {
+        event.preventDefault();
+
+        history.push('/ContactForm');
+    }
+
 
 
     return (
@@ -37,6 +45,7 @@ function PizzaSelect(){
                     pizza={pizza} />
                 })}
              </ul>
+            <button onClick={handleSubmit}> NEXT </button>
         </div>
     
     

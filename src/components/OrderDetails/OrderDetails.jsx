@@ -1,10 +1,22 @@
 import React from 'react';
 import {useSelector } from 'react-redux';
 import OrderItem from '../OrderDetails/OrderDetails'
+import { useHistory } from 'react-router-dom';
+
 
 function OrderDetails() {
     const checkoutOrder = useSelector(store => store.ContactFormReducer)
     console.log('this is our checkoutOrder', checkoutOrder);
+    const history = useHistory();
+
+    const handleSubmit = event => {
+        event.preventDefault();
+        
+        history.push('/PizzaSelect');
+    }
+
+    
+
     return (
          <div>
             <h3> Step 3: Checkout </h3>
@@ -19,6 +31,7 @@ function OrderDetails() {
                         </div>
                       )
                 })}
+            <button onClick={handleSubmit}> Checkout </button>
          </div>
     )
 }
