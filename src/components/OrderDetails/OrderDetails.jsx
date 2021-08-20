@@ -1,9 +1,21 @@
 import React from 'react';
 import {useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
 function OrderDetails() {
     const checkoutOrder = useSelector(store => store.ContactFormReducer)
     console.log('this is our checkoutOrder', checkoutOrder);
+    const history = useHistory();
+
+    const handleSubmit = event => {
+        event.preventDefault();
+        
+        history.push('/PizzaSelect');
+    }
+
+    
+
+
     const pizzaOrder = useSelector(store => store.pizzaOrderReducer)
     console.log('this is our checkoutOrder', checkoutOrder);
     return (
@@ -20,6 +32,7 @@ function OrderDetails() {
                         </div>
                       )
                 })}
+
                  {pizzaOrder.map((pizza, i) => {
                         return (
                          <table>
@@ -33,7 +46,7 @@ function OrderDetails() {
                             </table>
                 )
             })}
-            <button> Checkout </button>
+            <button onClick={handleSubmit}> Checkout </button>
          </div>
          
     )

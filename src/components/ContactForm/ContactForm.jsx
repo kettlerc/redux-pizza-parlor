@@ -30,6 +30,7 @@ function ContactForm({fetchPizzas}) {
             type: 'ADD_ORDER',
             payload: contactFormObject 
         })
+        history.push('/OrderDetails');
     }
     return (
             <>

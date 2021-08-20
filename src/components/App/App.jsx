@@ -32,7 +32,7 @@ function App() {
 
 
         </header>
-        <nav>
+        {/* <nav>
           <ul>
             <li>
               <Link to="/ContactForm">Contact From</Link>
@@ -44,7 +44,7 @@ function App() {
               <Link to="/OrderDetails">Order Details</Link>
             </li>
           </ul>
-        </nav>
+        </nav> */}
         <Route path="/PizzaSelect" exact>
           <PizzaSelect  />
           
